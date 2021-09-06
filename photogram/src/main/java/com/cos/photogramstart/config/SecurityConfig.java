@@ -25,7 +25,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.anyRequest().permitAll()
 			.and()		// ↓로그인 창에 자동으로 가게
 			.formLogin()
-			.loginPage("/auth/sighin")
+			.loginPage("/auth/sighin")	// GET
+			.loginProcessingUrl("/auth/signin") // POST -> 스프링 시큐리티가 로그인 프로세스 진행
 			.defaultSuccessUrl("/");
 		// 너가 "/","/user/**","/image/**","/subscribe/**","comment/**" 로 요청을 하면 "/auth/sighin"여기로 자동으로 가게 하겠다
 	}	// 로그인처리가 정상적으로 되면 "/"로 가게할게
